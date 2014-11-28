@@ -20,6 +20,7 @@ public class Card
    public static final int DIAMONDS = 4;
    private int suit;
    private int rank;
+   private final int ACE_POKERVALUE = 14;
    
    /**
       Constructor for Card class
@@ -128,8 +129,58 @@ public class Card
       return cardDesc;
    }
    
+   public int getPokerValue()
+   {  
+      int pokerValue;
+      switch (rank)
+      {
+         case ACE:
+            pokerValue = ACE_POKERVALUE;
+            break;
+         case 2:
+            pokerValue = 2;
+            break;
+         case 3:
+            pokerValue = 3;
+            break;
+         case 4:
+            pokerValue = 4;
+            break;
+         case 5:
+            pokerValue = 5;
+            break;
+         case 6:
+            pokerValue = 6;
+            break;
+         case 7:
+            pokerValue = 7;
+            break;
+         case 8:
+            pokerValue = 8;
+            break;
+         case 9:
+            pokerValue = 9;
+            break;
+         case 10:
+            pokerValue = 10;
+            break;
+         case JACK:
+            pokerValue = JACK;
+            break;
+         case QUEEN:
+            pokerValue = QUEEN;
+            break;
+         case KING:
+            pokerValue = KING;
+            break;
+         default:
+            pokerValue = 0;
+            break;
+      }
+      return pokerValue;
+   }
    /**
-      Method that compares to cards
+      Method that checks if two cards are equal or not
       @param c An object of the Card class (Second card to compare)
       @return True if its the same card. False if its not the same card.
    */
@@ -145,5 +196,25 @@ public class Card
          status = false;
       }
       return status;
+   }
+   /**
+      Method that compares two cards
+      @param card An object of the Card class (Second card to compare)
+      @return -1 if the first is lower, 1 if its greater, 0 if they are equal.
+   */
+   public int compareTo(Card card) 
+   {
+      if (this.getPokerValue() < card.getPokerValue()) 
+      {
+         return -1;
+      } 
+      else if (this.getPokerValue() > card.getPokerValue()) 
+      {
+         return 1;
+      } 
+      else 
+      {
+         return 0;
+      }
    }
 }

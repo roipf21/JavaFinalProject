@@ -4,6 +4,7 @@ public class PokerPlayer
 {
    private Card card1;
    private Card card2;
+   private boolean isPlaying;
    private int pointsRemain;
    private int currBet;
    
@@ -110,8 +111,16 @@ public class PokerPlayer
    
    /**
    */
+   public void setIsPlaying(boolean is)
+   {
+      isPlaying = is;
+   }
    /**
    */
+   public boolean getIsPlaying()
+   {
+      return isPlaying;
+   }
    /**
    */
    

@@ -1,15 +1,18 @@
-public class ListReferenceBased implements ListInterface
+public class CircularListReferenceBased 
 {
-   private Node head;
+   private Node firstPlayer;
+   private Node small;
    private Node curr;
    private int numObj;
    /**
       Constructor for the ListReferenceBased class
    */
-   public ListReferenceBased()
+   public CircularListReferenceBased()
    {
-      head = null;
+      firstPlayer = null;
+      small = null;
       curr = null;
+      numObj = 0;
    }
    /**
       Method that checks if the List has already Nodes created or not
@@ -17,7 +20,7 @@ public class ListReferenceBased implements ListInterface
    */
    public boolean isEmpty()
    {
-      return head == null;
+      return firstPlayer == null;
    }
    /**
       Method to check the size of the List, amount of Nodes chained
@@ -33,34 +36,27 @@ public class ListReferenceBased implements ListInterface
       @param item The object we want to put in the Node
       @exception ListIndexOutOfBoundsException When the index given is out of the actual bounds
    */
-   public void add(int index, Object item) throws ListIndexOutOfBoundsException
+   public void add(Object item)
    {
       Node newNode = new Node(item); //Node to add
-      curr = head; //current = first
+      curr = firstPlayer; //current = first
       int i = 1; //variable to control number of times the loop runs
-      if (index >= 1 && index <= numObj+1)
+      if (isEmpty()) //add the first
       {
-         if (index == 1) //add at the beginning
-         {
-            newNode.setNext(head);
-            head = newNode;
-         }
-         else //add in any other position
-         {
-            while ( i < index-1 )
-            {
-               curr = curr.getNext();
-               i++;
-            }
-            newNode.setNext(curr.getNext());
-            curr.setNext(newNode);
-         }
-         numObj++;
+         newNode.setNext(newNode);
+         firstPlayer = newNode;
       }
-      else
+      else //add in any other position
       {
-         throw new ListIndexOutOfBoundsException("not in list");
+         while ( i < numObj )
+         {
+           curr = curr.getNext();
+           i++;
+         }
+         newNode.setNext(curr.getNext());
+         curr.setNext(newNode);
       }
+      numObj++;
    }
    /**
       Method to get the object inside the Node
@@ -71,7 +67,7 @@ public class ListReferenceBased implements ListInterface
    public Object get(int index) throws ListIndexOutOfBoundsException
    {
       
-      curr = head;
+      curr = firstPlayer;
       int i = 1;
       if (index >= 1 && index <= numObj)
       {
@@ -95,15 +91,19 @@ public class ListReferenceBased implements ListInterface
    */
    public void remove(int index) throws ListIndexOutOfBoundsException
    {
-      curr = head;
+      curr = firstPlayer;
       int i = 1;
       if (index >= 1 && index <= numObj+1)
       { 
          if ( index == 1 )
-         {
-            head = head.getNext(); //We change the reference to the next Node so the first is not referenced by anyone
-            //curr.setNext(null);
-            //curr = head;
+         {  
+            while ( i < numObj )
+            {
+              curr = curr.getNext();
+              i++;
+            }
+            curr.setNext(firstPlayer.getNext());
+            firstPlayer= firstPlayer.getNext();
          }
          else
          {
@@ -131,8 +131,15 @@ public class ListReferenceBased implements ListInterface
    */
    public void removeAll()
    {
-      head = null;
-      curr = head;
+      firstPlayer = null;
+      curr = firstPlayer;
    }
-  
+   /**
+      Method to set the Small blind
+      @param index The player who is the Small blind
+   */
+   public void setSmall(int index)
+   {
+      small = (Node)get(index);
+   }
 }
