@@ -96,7 +96,7 @@ public class HandEval
       int temp;
       highCardsList = new ArrayList<Integer>();
       pairsList = new ArrayList<Integer>();
-      for (int i = 1; i <= N_RANKS; i++)
+      for (int i = 1; i < N_RANKS; i++)
       {
          if( rankDistribution[i] == 4 )
          {

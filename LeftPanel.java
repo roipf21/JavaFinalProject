@@ -153,16 +153,39 @@ public class LeftPanel extends JPanel
    /**
       Method to set the curr Bet
    */
-   public void setCurrBet()
-   {
-      int currentBet = player.getCurrBet();
-      currBet.setText(String.valueOf(currentBet));
-   }
+   // public void setCurrBet()
+//    {
+//       int currentBet = player.getCurrBet();
+//       currBet.setText(String.valueOf(currentBet));
+//    }
    /**
       Method to set the raise
    */
    public void clearRaise()
    {
       raise.setText("0");
+   }
+   /**
+   */
+   public void actualizeLeft(int minimumBet) 
+   {
+      SwingUtilities.invokeLater(
+         new Runnable() 
+         {
+            public void run() 
+            {
+               //SetCurrentBet
+               int currentBet = player.getCurrBet();
+               currBet.setText(String.valueOf(currentBet));
+               //SetMinBet
+               minBet.setText(String.valueOf(minimumBet));
+               //SetPoints
+               int pts = player.getPRemain();
+               points.setText(String.valueOf(pts));
+               //clearRaise
+               raise.setText("0");
+            }
+         }
+      );
    }
 }

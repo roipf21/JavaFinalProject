@@ -92,4 +92,24 @@ public class RightPanel extends JPanel
          playersBet.get(i).setText(String.valueOf(players.get(i).getCurrBet()));
       }
    }
+   /**
+   */
+   public void actualizeRight(int pot) 
+   {
+      SwingUtilities.invokeLater(
+         new Runnable() 
+         {
+            public void run() 
+            {
+               //SetBets
+               for (int i = 0 ; i < players.size() ; i++)
+               {
+                  playersBet.get(i).setText(String.valueOf(players.get(i).getCurrBet()));
+               }
+               //SetPot
+               total.setText(String.valueOf(pot));
+            }
+         }
+      );
+   }
 }

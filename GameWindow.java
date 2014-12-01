@@ -186,20 +186,23 @@ public class GameWindow extends JFrame
    public void actualize(int pot, int minBet)
    {
                //actualize left panel
-      //Remaining points
-      leftpanel.setPoints();
-      //current bet
-      leftpanel.setCurrBet();
-      //minimum bet
-      leftpanel.setMinBet(minBet);
-      // clear raise
-      leftpanel.clearRaise();
+               leftpanel.actualizeLeft(minBet);
+               
+      // //Remaining points
+//       leftpanel.setPoints();
+//       //current bet
+//       leftpanel.setCurrBet();
+//       //minimum bet
+//       leftpanel.setMinBet(minBet);
+//       // clear raise
+//       leftpanel.clearRaise();
       
                //actualize right panel
-      //pot
-      rightpanel.setPot(pot);
-      //playerscurrbet
-      rightpanel.setBets();
+               rightpanel.actualizeRight(pot);
+      // //pot
+//       rightpanel.setPot(pot);
+//       //playerscurrbet
+//       rightpanel.setBets();
    }
    /**
       Method to change the color of the down panel to know who is playing.
