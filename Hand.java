@@ -35,6 +35,18 @@ public class Hand
       cardsInHand++;
    }
    /**
+      Method to clear the hand
+   */
+   public void clearHand()
+   {
+      for(int i=0; i<cardsInHand;i++)
+      {
+         cards[i] = null;
+      }
+      cardsInHand = 0;
+      
+   }
+   /**
       Method to sort the hand
    */
    public void handSort()

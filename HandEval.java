@@ -1,4 +1,4 @@
-/*
+/**
    HANDEVAL CLASS
 */
 
@@ -150,7 +150,6 @@ public class HandEval
          }
       }
    }
-   
    /**
       Method to find which ranks and suits are repeated and how many times
    */
@@ -496,6 +495,16 @@ public class HandEval
       return totalValue;
    }
    /**
+      Method that returns the card desired
+      @param index The exact index of the card in the hand (from 0 to 6 (7cards))
+      @return The card desired
+   */
+   public Card getCard(int index)
+   {
+      Card card = cards[index];
+      return card;
+   }
+   /**
       Method that compares two Hands
       @return -1 if lower, 0 if equal, 1 if higher
    */
@@ -513,5 +522,26 @@ public class HandEval
       {
          return 1;
       }
+   }
+   /**
+      Method that compares 2 HandEval objects and returns if they have the same cards or not.
+      @param otherHandEval The other HandEval to compare with.
+      @return True if the 2 HandEvals are exactly the same, same cards
+   */
+   public boolean equals(HandEval otherHandEval)
+   {
+      boolean same = false;
+      for(int i = 0; i < N_CARDS; i++)
+      {
+         if(this.cards[i].isSameCard(otherHandEval.getCard(i)))
+         {
+            same = true;
+         }
+         else
+         {
+            same = false;
+         }
+      }
+      return same;
    }
 }

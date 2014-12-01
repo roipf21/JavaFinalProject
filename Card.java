@@ -128,7 +128,10 @@ public class Card
       
       return cardDesc;
    }
-   
+   /**
+      Method that returns the value of the cards in the holdem texas poker game
+      @return The value of the card in the game
+   */
    public int getPokerValue()
    {  
       int pokerValue;
@@ -178,6 +181,101 @@ public class Card
             break;
       }
       return pokerValue;
+   }
+   /**
+      Method that returns the name of the image file of the card
+      @return A string with the name of the image file
+   */
+   public String getImage()
+   {
+      String rankCard;
+      switch (rank)
+      {
+         case ACE:
+            rankCard = "ace";
+            break;
+         case 2:
+            rankCard = "2";
+            break;
+         case 3:
+            rankCard = "3";
+            break;
+         case 4:
+            rankCard = "4";
+            break;
+         case 5:
+            rankCard = "5";
+            break;
+         case 6:
+            rankCard = "6";
+            break;
+         case 7:
+            rankCard = "7";
+            break;
+         case 8:
+            rankCard = "8";
+            break;
+         case 9:
+            rankCard = "9";
+            break;
+         case 10:
+            rankCard = "10";
+            break;
+         case JACK:
+            rankCard = "jack";
+            break;
+         case QUEEN:
+            rankCard = "queen";
+            break;
+         case KING:
+            rankCard = "king";
+            break;
+         default:
+            rankCard = "NO RANK";
+            break;
+      }
+      String suitCard;
+      switch (suit)
+      {
+         case SPADES:
+            suitCard = "s";
+            break;
+         case CLUBS:
+            suitCard = "c";
+            break;
+         case HEARTS:
+            suitCard = "h";
+            break;
+         case DIAMONDS:
+            suitCard = "d";
+            break;
+         default:
+            suitCard = "NO SUIT";
+            break;
+      }
+      
+      String image;
+      image = (rankCard + suitCard + ".jpg");
+      
+      return image;
+   }
+   /**
+      Method that checks if the 2 cards are the same
+      @param c The card to compare with
+      @return True if its the same card, false if it is not.
+   */
+   public boolean isSameCard(Card c)
+   {
+      boolean status;
+      if((this.rank == c.rank) && (this.suit == c.suit))
+      {
+         status = true;
+      }
+      else
+      {
+         status = false;
+      }
+      return status;
    }
    /**
       Method that checks if two cards are equal or not
