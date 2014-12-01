@@ -75,24 +75,8 @@ public class RightPanel extends JPanel
       playersBet.get(index-1).setText(String.valueOf(bet));
    }
    /**
-      Method to set the current pot
-      @param totalPot The current total pot
-   */
-   public void setPot(int totalPot)
-   {
-      total.setText(String.valueOf(totalPot));
-   }
-   /**
-      Method to set the players curr bet   
-   */
-   public void setBets()
-   {
-      for (int i = 0 ; i < players.size() ; i++)
-      {
-         playersBet.get(i).setText(String.valueOf(players.get(i).getCurrBet()));
-      }
-   }
-   /**
+      Method to actualize the right panel of the window with the new data from players and game
+      @param pot The total pot
    */
    public void actualizeRight(int pot) 
    {

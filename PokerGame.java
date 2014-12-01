@@ -64,6 +64,9 @@ public class PokerGame
       //GAME MAIN LOOP
       while (true) 
       {
+         //NEXT ROUND
+         JOptionPane.showMessageDialog(null,"NEXT ROUND");
+         //starts next round
          int numbActivePlayers = 0;
          for (PokerPlayer pokerplayer : players) 
          {
@@ -75,6 +78,10 @@ public class PokerGame
          if (numbActivePlayers > 1)           
          {
             playHand();
+            for(int i = 0 ; i < windows.size() ; i++)
+            {
+               windows.get(i).resetBoardCards();
+            }
          } 
          else 
          {
@@ -369,6 +376,7 @@ public class PokerGame
                   PokerPlayer winner = activePlayers.get(0);
                   winner.roundWon(totalPot);
                   playersToAct = 0;
+                  JOptionPane.showMessageDialog(null,"Player: " + winner.getName() + " won");
                }
             }
             else if (actor.getMovement() == PokerPlayer.MOV_CALL)
@@ -385,6 +393,7 @@ public class PokerGame
                      PokerPlayer winner = activePlayers.get(0);
                      winner.roundWon(totalPot);
                      playersToAct = 0;
+                     JOptionPane.showMessageDialog(null,"Player: " + winner.getName() + " won");
                   }   
                }
                else
@@ -407,6 +416,7 @@ public class PokerGame
                   PokerPlayer winner = activePlayers.get(0);
                   winner.roundWon(totalPot);
                   playersToAct = 0;
+                  JOptionPane.showMessageDialog(null,"Player: " + winner.getName() + " won");
                }
             }
             else if (actor.getMovement() == PokerPlayer.MOV_PASS)
@@ -421,6 +431,7 @@ public class PokerGame
                   PokerPlayer winner = activePlayers.get(0);
                   winner.roundWon(totalPot);
                   playersToAct = 0;
+                  JOptionPane.showMessageDialog(null,"Player: " + winner.getName() + " won");
                }
             }
             actor.resetMov();
@@ -447,6 +458,7 @@ public class PokerGame
                      PokerPlayer winner = activePlayers.get(0);
                      winner.roundWon(totalPot);
                      playersToAct = 0;
+                     JOptionPane.showMessageDialog(null,"Player: " + winner.getName() + " won");
                   }
                }
                else
@@ -514,6 +526,7 @@ public class PokerGame
                   PokerPlayer winner = activePlayers.get(0);
                   winner.roundWon(totalPot);
                   playersToAct = 0;
+                  JOptionPane.showMessageDialog(null,"Player: " + winner.getName() + " won");
                }
             }
             else 
@@ -580,11 +593,13 @@ public class PokerGame
          for(int i = 0; i < otherWinners.size(); i++)
          {
             checkifwon.get(otherWinnersIndexes.get(i)).roundWon(totalPot/(otherWinners.size()+1));
+            JOptionPane.showMessageDialog(null,"Player: " + checkifwon.get(otherWinnersIndexes.get(i)).getName() + " won.");
          }
       }
       else
       {
          checkifwon.get(highestIndex).roundWon(totalPot);
+         JOptionPane.showMessageDialog(null,"Player: " + checkifwon.get(highestIndex).getName() + " won");
       }
    }
    /**

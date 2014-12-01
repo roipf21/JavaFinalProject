@@ -134,38 +134,9 @@ public class LeftPanel extends JPanel
       currBet = Integer.parseInt(input);
       return currBet;
    }
-   /**   
-      Method to set the remaining points
-   */
-   public void setPoints()
-   {
-      int pts = player.getPRemain();
-      points.setText(String.valueOf(pts));
-   }
    /**
-      Method to set the min Bet
+      Method to actualize the left panel with the current data from players and game
       @param minimumBet The min Bet
-   */
-   public void setMinBet(int minimumBet)
-   { 
-      minBet.setText(String.valueOf(minimumBet));
-   }
-   /**
-      Method to set the curr Bet
-   */
-   // public void setCurrBet()
-//    {
-//       int currentBet = player.getCurrBet();
-//       currBet.setText(String.valueOf(currentBet));
-//    }
-   /**
-      Method to set the raise
-   */
-   public void clearRaise()
-   {
-      raise.setText("0");
-   }
-   /**
    */
    public void actualizeLeft(int minimumBet) 
    {
@@ -184,6 +155,23 @@ public class LeftPanel extends JPanel
                points.setText(String.valueOf(pts));
                //clearRaise
                raise.setText("0");
+            }
+         }
+      );
+   }
+   /**
+      Method to reset the cards in the hand
+   */
+   public void resetCards() 
+   {
+      SwingUtilities.invokeLater(
+         new Runnable() 
+         {
+            public void run() 
+            {
+               cardImage = new ImageIcon("back.jpg");
+               card1.setIcon(cardImage);
+               card2.setIcon(cardImage);
             }
          }
       );

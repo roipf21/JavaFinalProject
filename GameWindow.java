@@ -182,27 +182,24 @@ public class GameWindow extends JFrame
    }
    /**
       Method to actualize the board
+      @param pot The total pot
+      @param minBet The minimum Bet
    */
    public void actualize(int pot, int minBet)
    {
-               //actualize left panel
-               leftpanel.actualizeLeft(minBet);
-               
-      // //Remaining points
-//       leftpanel.setPoints();
-//       //current bet
-//       leftpanel.setCurrBet();
-//       //minimum bet
-//       leftpanel.setMinBet(minBet);
-//       // clear raise
-//       leftpanel.clearRaise();
-      
-               //actualize right panel
-               rightpanel.actualizeRight(pot);
-      // //pot
-//       rightpanel.setPot(pot);
-//       //playerscurrbet
-//       rightpanel.setBets();
+      //actualize left panel
+      leftpanel.actualizeLeft(minBet);
+
+      //actualize right panel
+      rightpanel.actualizeRight(pot);
+   }
+   /**
+      Method to reset the Cards in the table (puts a "back" image)
+   */
+   public void resetBoardCards()
+   {
+      centralpanel.resetCenter();
+      leftpanel.resetCards();
    }
    /**
       Method to change the color of the down panel to know who is playing.

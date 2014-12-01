@@ -76,19 +76,4 @@ public class Deck
    {
       return (cardsRemaining() == 0);
    }
-
-   public static void main(String [] args) 
-   {
-      Deck deck = new Deck();
-      deck.shuffle();
-      int i = 0;
-      while (!(deck.isEmpty()))
-         System.out.println(i++ + " : " + deck.dealCard().toString());
-      deck.freshDeck();
-      System.out.println("************");
-      i = 0;
-      while (!(deck.isEmpty()))
-         System.out.println(i++ + " : " + deck.dealCard().toString());
-
-   }
 }

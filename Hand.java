@@ -1,7 +1,6 @@
 /*
    HAND CLASS
 */
-
 public class Hand
 {
    /*
@@ -107,6 +106,4 @@ public class Hand
       }
       return handString;
    }
-
-
 }

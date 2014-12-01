@@ -88,4 +88,24 @@ public class CentralPanel extends JPanel
       cardImage = new ImageIcon(imageDirectory);
       card5.setIcon(cardImage);
    }
+   /**
+      Method to reset the cards in the board
+   */
+   public void resetCenter() 
+   {
+      SwingUtilities.invokeLater(
+         new Runnable() 
+         {
+            public void run() 
+            {
+               cardImage = new ImageIcon("back.jpg");
+               card1.setIcon(cardImage);
+               card2.setIcon(cardImage);
+               card3.setIcon(cardImage);
+               card4.setIcon(cardImage);
+               card5.setIcon(cardImage);
+            }
+         }
+      );
+   }
 }

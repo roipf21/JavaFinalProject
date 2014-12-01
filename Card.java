@@ -1,6 +1,6 @@
 /* 
 Name: Rodrigo Penide
-Subject: CS110 Assignment #5
+Subject: CS110
 CARD CLASS
 */
 
