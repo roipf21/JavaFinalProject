@@ -506,6 +506,7 @@ public class HandEval
    }
    /**
       Method that compares two Hands
+      @param otherHandEval The other Hand Evaluator to compare with
       @return -1 if lower, 0 if equal, 1 if higher
    */
    public int compareTo(HandEval otherHandEval)
